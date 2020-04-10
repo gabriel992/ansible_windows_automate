@@ -1,0 +1,23 @@
+---
+# tasks file for iis
+  - name: INSTALLING IIS
+    win_feature:
+      name: "WEB-SERVER"
+      state: present
+      restart: yes
+      include_sub_features: yes
+      include_management_tools: yes
+    register: iis_install
+  - debug:
+      var: iis_install.reboot_required
+
+  - name: INSTALL  URLREWRITE
+    win_chocolatey:
+      name: urlrewrite
+      state: present 
+    register: url
+
+  
+  - name: REBOOT IF INSTALLING WEB-SERVER FEATURE REQUIRES IT
+    win_reboot:
+    when: iis_install.reboot_required == 'true'

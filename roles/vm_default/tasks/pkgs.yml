@@ -1,0 +1,12 @@
+---
+# tasks file for default
+- name: INSTALL MULTIPLE PACKAGES SEQUENTIALLY
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  loop:
+  - 7zip
+  - notepadplusplus
+  - GoogleChrome 
+  - ms-reportviewer2015
+  - vcredist2017

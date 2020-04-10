@@ -1,0 +1,10 @@
+---
+# tasks file for default
+- name: CREATE USER TO DEV
+  include: users.yml
+  
+- name: INSTALL MULTIPLE PACKAGES SEQUENTIALLY
+  include: pkgs.yml
+
+- name: ADD WINDOWS FEATURE IIS AND INSTALL DEPENDECE
+  include: iis_config.yml    

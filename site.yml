@@ -1,0 +1,12 @@
+---
+- 
+  name: COMPLIANCE
+  hosts: lab
+  gather_facts: false
+  roles:
+    - vm_default
+    
+  
+  
+
+ 

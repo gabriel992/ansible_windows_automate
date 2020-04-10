@@ -1,0 +1,15 @@
+---
+- name: CREATE USER TO DEV 
+  win_user:
+    name: xxxx
+    password: xxxx
+    state: present
+    groups:
+      - Users
+
+- name: ADD A LOCAL AND DOMAIN USER TO A LOCAL GROUP
+  win_group_membership:
+    name: Remote Desktop Users
+    members:
+      - svc.dev
+    state: present      
