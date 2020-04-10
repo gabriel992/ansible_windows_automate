@@ -9,4 +9,4 @@ Usando um playbook simples  para demostração do potencial com **ansible** para
 * A configuração do IIS uma feature do windows apresentado neste playbook tambem já é um modulo ansile.
 * Para instalção desses packages usei chocolatey.
 * Com o tempo irei incrementar essa receita oque temos por hora é apenas uma amostra do  potencial do seu uso.
-* O intuito é mostrar que já possivel usar ansible em windows tambem e não apenas em linux.
+* O intuito é mostrar que já possivel usar ansible em windows tambem e não apenas em linux facilitando a vida.
