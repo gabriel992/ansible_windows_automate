@@ -18,10 +18,14 @@
     enabled: yes
 
 - name: STOPPED SERVICE ZABBIX-AGENT
-  win_shell:  Stop-Service -Name "Zabbix*"
+  win_service:
+    name: Zabbix Agent
+    start_mode: auto
+    state: stopped
   register: zabbix_stopped
+  notify: STARTED ZABBIX AGENT
 - debug:
-      var: zabbix_stopped.rc
+      var: zabbix_stopped.changed
 
 - name: GET HOSTNAME
   win_shell: hostname
@@ -40,13 +44,13 @@
   win_lineinfile:
     path: C:\ProgramData\zabbix\zabbix_agentd.conf
     regex: 'ServerActive=127.0.0.1'
-    line: 'ServerActive=SEU IP'
+    line: 'ServerActive=40.114.26.121'
 
 - name: REGEX  AND CONFIG  SERVER
   win_lineinfile:
     path: C:\ProgramData\zabbix\zabbix_agentd.conf
     regex: 'Server=127.0.0.1'
-    line: 'Server=SEU IP'    
+    line: 'Server=40.114.26.121'    
 
 - name: REGEX  AND CONFIG  HOSTNAME
   win_lineinfile:
@@ -54,14 +58,4 @@
     regex: 'Hostname=Windows host'
     line: 'Hostname={{ host_zabbix_agent }}'    
 
-- name: STARTED SERVICE ZABBIX-AGENT
-  win_shell:  Start-Service -Name "Zabbix*"
-  register: zabbix_started
-- debug:
-      var: zabbix_started.rc
-
-- name: GET SERVICE ZABBIX-AGENT
-  win_shell:  Get-Service -Name "Zabbix*"
-  register: zabbix_get
-- debug:
-      var: zabbix_get.stdout_lines      
+     

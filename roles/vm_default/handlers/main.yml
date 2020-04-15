@@ -1,2 +1,7 @@
 ---
 # handlers file for default
+- name: STARTED ZABBIX AGENT
+  win_service:
+    name: Zabbix Agent
+    start_mode: auto
+    state: started

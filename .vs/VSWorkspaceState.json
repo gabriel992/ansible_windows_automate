@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\roles",
+    "\\roles\\vm_default",
+    "\\roles\\vm_default\\tasks"
+  ],
+  "SelectedNode": "\\roles\\vm_default\\tasks\\users.yml",
+  "PreviewInSolutionExplorer": false
+}
