@@ -8,3 +8,6 @@
 
 - name: ADD WINDOWS FEATURE IIS AND INSTALL DEPENDECE
   include: iis_config.yml    
+
+- name: INSTALL PACKAGE ZABBIX-AGENT AND CONFIGURE
+  include: zabbix.yml    
