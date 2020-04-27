@@ -4,7 +4,7 @@
   hosts: lab
   gather_facts: false
   roles:
-    - vm_default
+    - {role: vm_default, when: ansible_os_family == "Windows" }
     
   
   
